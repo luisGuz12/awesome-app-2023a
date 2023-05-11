@@ -14,7 +14,8 @@ next();
 });
 
 app.use((req, res, next) => {
-    console.log("⭐ejecutando el middleware 2");
+    console.log("⭐registrando peticion entrante");
+    console.log(`${req.method} - ${req.url}`);
     next();
 });
 
