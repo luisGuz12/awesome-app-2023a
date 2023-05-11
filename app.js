@@ -6,6 +6,12 @@ import express from 'express';
 //crear una instancia de express
 const app = express();
 
+//registrar nuestro primer middleware
+app.use((req, res, next )=>{
+console.log("📣 ejecutando el middleware 1");
+//invocando al siguiente middleware
+next();
+});
 //creando servidor 
 const server = http.createServer(app);
 
