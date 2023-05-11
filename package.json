@@ -1,0 +1,17 @@
+{
+  "name": "awesome-app-2023a",
+  "version": "0.0.0",
+  "description": "app for learning expressjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "ITGAM",
+    "DWPCI",
+    "Javascript"
+  ],
+  "author": "@luisowo12",
+  "license": "MIT"
+}
