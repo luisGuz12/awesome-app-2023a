@@ -12,6 +12,21 @@ console.log("📣 ejecutando el middleware 1");
 //invocando al siguiente middleware
 next();
 });
+
+app.use((req, res, next) => {
+    console.log("⭐ejecutando el middleware 2");
+    next();
+});
+
+
+app.use((req, res) => {
+    console.log("⭐ respondiendo al cliente");
+    res.send(`
+    <h1> welcome to express</h1>
+    <p>This is my awesome app</p>
+    `);
+});
+
 //creando servidor 
 const server = http.createServer(app);
 
