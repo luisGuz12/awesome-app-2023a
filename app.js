@@ -6,6 +6,13 @@ import express from 'express';
 //crear una instancia de express
 const app = express();
 
+//middle de uso especifico
+app.use('/about',(req, res)=> {
+res.send(`
+<h1 style="color: #555">About... </h1>
+<p> esta pagina creada para aprender desarrollo web en js</p>
+`)
+});
 //registrar nuestro primer middleware
 app.use((req, res, next )=>{
 console.log("📣 ejecutando el middleware 1");
