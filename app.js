@@ -6,6 +6,8 @@ import express from 'express';
 //crear una instancia de express
 const app = express();
 
+//middleware de parseo de datos del cliente
+app.use(express.urlencoded({extended: true}));
 //middle de uso especifico
 app.use('/about',(req, res)=> {
 res.send(`
@@ -13,6 +15,7 @@ res.send(`
 <p> esta pagina creada para aprender desarrollo web en js</p>
 `)
 });
+3
 //registrar nuestro primer middleware
 app.use((req, res, next )=>{
 console.log("📣 ejecutando el middleware 1");
@@ -26,6 +29,39 @@ app.use((req, res, next) => {
     next();
 });
 
+//GET /add-product
+app.use('/add-product', (req, res, next) =>{
+   
+    if(req.method === "POST") return next();
+    console.log("📣Sirviendo el formulario");
+    //sirviendo el formulario
+    console.log("📣Sirviendo el formulario");
+    res.send(`
+    <form action="/add-product" method="POST">
+    <label for="title">Title</label>
+    <input id="title" type="text" name="title" >
+
+
+    <label for="descripcion">Description</label>
+    <input id="description" type="text" name="description">
+
+<button type="submit">Add product</button>    
+    </form>
+    `);
+});
+
+// POST /add-product
+app.use('/add-product', (req, res) =>{
+//realizando extraccion de los
+//datos de la peticion 
+for(const prop in req.body){
+    console.log(`PROP: ${prop} : ${req.body[prop]}`);
+}
+//redireccionamiento 
+
+    res.redirect('/');
+
+});
 
 app.use((req, res) => {
     console.log("⭐ respondiendo al cliente");
