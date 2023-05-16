@@ -30,9 +30,8 @@ app.use((req, res, next) => {
 });
 
 //GET /add-product
-app.use('/add-product', (req, res, next) =>{
+app.get('/add-product', (req, res, next) =>{
    
-    if(req.method === "POST") return next();
     console.log("📣Sirviendo el formulario");
     //sirviendo el formulario
     console.log("📣Sirviendo el formulario");
@@ -51,7 +50,7 @@ app.use('/add-product', (req, res, next) =>{
 });
 
 // POST /add-product
-app.use('/add-product', (req, res) =>{
+app.post('/add-product', (req, res) =>{
 //realizando extraccion de los
 //datos de la peticion 
 for(const prop in req.body){
