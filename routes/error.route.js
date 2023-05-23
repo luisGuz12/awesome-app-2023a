@@ -7,9 +7,9 @@ import path from 'path';
 const router = Router();
 
 // GET /
-router.get( (req, res)=>{
+router.get('/', (req, res)=>{
   
-  res.sendFile(path.resolve('views','error-404html'));
+  res.sendFile(path.resolve('views','error-404.html'));
 });
 
 
