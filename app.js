@@ -7,7 +7,7 @@ import httpStatus from 'http-status';
 // Importando el enrutador
 import adminRouter from './routes/admin.route.js';
 import shopRouter from './routes/shop.route.js';
-import errorRouter from './routes/error.route.js';
+
 
 // Creando la instancia de express
 // que básicamente es un middleware
@@ -21,8 +21,7 @@ app.use('/admin', adminRouter);
 // Se agrega ruta shop
 app.use(shopRouter);
 
-// Registrando middleware para el error 404
-app.use(errorRouter);
+
 // Definiendo puertos
 const port = 3000;
 const ip = "0.0.0.0";
