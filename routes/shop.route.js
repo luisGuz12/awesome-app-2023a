@@ -22,4 +22,9 @@ router.get('/about', (req, res) => {
   `);
 });
 
+router.use((req,res)=>{
+console.log();
+res.sendFile(path.resolve('views','error-404.html'))
+});
+
 export default router;

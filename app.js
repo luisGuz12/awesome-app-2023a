@@ -17,15 +17,12 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 // Se agrega ruta de administrador
-app.use(adminRouter);
+app.use('/admin', adminRouter);
 // Se agrega ruta shop
 app.use(shopRouter);
 
 // Registrando middleware para el error 404
-app.use((req, res) => {
-  res.status(httpStatus.NOT_FOUND).send(errorRouter);
-});
-
+app.use(errorRouter);
 // Definiendo puertos
 const port = 3000;
 const ip = "0.0.0.0";
