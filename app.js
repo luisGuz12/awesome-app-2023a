@@ -32,7 +32,7 @@ app.use(shopRouter);
 // 404
 app.use((req, res, next) => {
   res.status(httpStatus.NOT_FOUND)
-  .sendFile(path.resolve('views','404.html'))
+  .sendFile(path.resolve('views','error-404.html'))
 });
 
 // Definiendo puertos
