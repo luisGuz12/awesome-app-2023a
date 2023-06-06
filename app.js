@@ -19,25 +19,6 @@ import path from 'path';
 // que basicamente es un middleware
 const app = express();
 
-// Se registra el middleware del body-parser
-/*app.use(express.urlencoded({ extended: true }));
-
-// Se registra el middleware para el servidor
-// de archivos estaticos
-app.use(express.static(path.join(ROOT_DIR, 'public')));
-
-// Se agrega ruta de administrador
-app.use('/admin', adminRouter);
-// Se agrega ruta shop
-app.use(shopRouter);
-
-// Registrando el middleware para el error
-// 404
-app.use((req, res, next) => {
-  res.status(httpStatus.NOT_FOUND)
-  .sendFile(path.resolve('views','error-404.html'))
-});
-*/
 // Se crea instancia del template engine
 const hbsTemplateEngine = engine({
   // Extensión de los archivos de plantillas
@@ -71,9 +52,8 @@ app.use(shopRouter);
 // 404
 app.use((req, res, next) => {
   res.status(httpStatus.NOT_FOUND)
-  .sendFile(path.resolve('views','error-404.html'))
+  .sendFile(path.resolve('views','404.html'))
 });
-
 
 // Definiendo puertos
 const port = 3000;
